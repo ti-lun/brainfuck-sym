@@ -10,7 +10,7 @@ You do not need any background context on compilers or the BF language to comple
 
 ## `Brainf***` Interpreter
 
-Please refer to the [`interpreter`](interpreter) folder for this section.
+Please refer to the [`interpreter`](https://github.com/symopsio/fullstack-challenge/tree/master/interpreter) folder for this section.
 
 Implement a BF interpreter (as a Ruby class), which takes in a script and executes it. We will include a single test script to help you test correctness, but encourage you to write more tests.
 
