@@ -1,6 +1,6 @@
 # Sym Full-Stack Challenge
 
-Our goal here will be to build an end-to-end Brain*** interpreter and execution visualizer. We'll break this into three parts: the interpreter, the API, and the visualizer.
+Our goal here will be to build an end-to-end Brain\*\*\* interpreter and execution visualizer. We'll break this into three parts: the interpreter, the API, and the visualizer.
 
 You do not need any background context on compilers or the BF language to complete this challenge.
 
@@ -43,7 +43,7 @@ To help with this assignment, we provide a reference API which parses and execut
 
 **TODO(yasyf): Deploy the reference API**
 
-#### `POST https://bf.symops.com/api/v1/brainfuck`
+#### `POST https://bf-api.symops.io/api/v1/brainfuck`
 
 This endpoint takes one mandatory parameter, `script`, which is a string containing the BF script to be executed. It also takes an optional `input` parameter, which is used to buffer some input characters before execution begins.
 
@@ -57,18 +57,12 @@ The response is a representation of the state of a BF execution environment. Thi
   "data_pointer": 0,
   "input": "",
   "output": "",
-  "script": [
-    "+",
-    "+"
-  ],
-  "data": [
-    0,
-    0
-  ]
+  "script": ["+", "+"],
+  "data": [0, 0]
 }
 ```
 
-#### `POST https://bf.symops.com/api/v1/brainfuck/<id>/step`
+#### `POST https://bf-api.symops.io/api/v1/brainfuck/<id>/step`
 
 This endpoint takes an optional `input` parameter: a string to be concatenated to the input buffer.
 
