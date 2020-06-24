@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'test/unit'
+require 'stringio'
 
 require_relative './environment'
 require_relative './brainfuck'
@@ -10,7 +13,7 @@ class TestBrainfuck < Test::Unit::TestCase
   end
 
   def test_hello_world
-    script = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."
+    script = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
     output = "Hello World!\n"
     assert_script_output script, output
   end
