@@ -1,6 +1,6 @@
 # Sym Full-Stack Challenge
 
-Our goal here will be to build an end-to-end Brainf\*\*\* virtual machine. We'll break this into three parts:
+Our goal here will be to build an end-to-end Brainf\*\*\* (aka Brainfreeze) virtual machine. We'll break this into three parts:
 
 - The Interpreter, which takes in a BF script and executes it
 - The API, which provides an JSON interface to the Interpreter
@@ -26,14 +26,14 @@ Please refer to the [`interpreter`](https://github.com/symopsio/fullstack-challe
 
 We have implemented a BF interpreter (as a Ruby class), which takes in a script and executes it. We will include a single test script to help demonstrate correctness, but encourage you to write more tests to get a better handle for the code.
 
-The class is called `Brainfuck`. The initializer accepts some keyword arguments: `input:` and `output:`, both of type [`IO`](https://ruby-doc.org/core-2.3.1/IO.html), and `id:`, a `String`.
+The class is called `Brainfreeze`. The initializer accepts some keyword arguments: `input:` and `output:`, both of type [`IO`](https://ruby-doc.org/core-2.3.1/IO.html), and `id:`, a `String`.
 
-To run a BF script, you follow a simple API: call `parse!` on a `Brainfuck` instance with a string containing the instructions, and then `step!` through. There are also several convenience methods defined, such as `interpret!` and `as_json`. We encourage you to study the implementation before continuing.
+To run a BF script, you follow a simple API: call `parse!` on a `Brainfreeze` instance with a string containing the instructions, and then `step!` through. There are also several convenience methods defined, such as `interpret!` and `as_json`. We encourage you to study the implementation before continuing.
 
 ```ruby
-class BrainfuckTester
+class BrainfreezeTester
   def initialize
-    @interpreter = Brainfuck.new(input: $stdin, output: $stdout)
+    @interpreter = Brainfreeze.new(input: $stdin, output: $stdout)
   end
 
   def test!
@@ -45,7 +45,7 @@ end
 
 You will be using this code in the next step to implement an API.
 
-## `Brainf***` API
+## `Brainfreeze` API
 
 We want to wrap the supplied BF interpreter in an API that will provision an instance on-demand, execute a program one call at a time, and return after each call a dump of the current memory.
 
@@ -91,7 +91,7 @@ This endpoint also takes an optional `count` parameter: the number of steps to t
 
 After processing any additional input, this endpoint steps the BF interpreter forward by `count` instructions, and returns the state. Any output thus far can be found in the state, as well as the current values for the instruction and data pointers.
 
-## `Brainf***` Execution Visualizer
+## `Brainfreeze` Execution Visualizer
 
 We now want to build an _execution visualizer_, which is a web app that executes a program step by step, and can show at any given time where we are in the program's execution (which line is being run currently), and what our memory currently looks like. An example of an execution visualizer can be found [here](https://goo.gl/nDth8B). We recommend you play with this example for a bit to get familiar with what we are trying to build.
 

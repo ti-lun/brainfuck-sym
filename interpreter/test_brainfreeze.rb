@@ -4,12 +4,12 @@ require 'test/unit'
 require 'stringio'
 
 require_relative './environment'
-require_relative './brainfuck'
+require_relative './brainfreeze'
 
-class TestBrainfuck < Test::Unit::TestCase
+class TestBrainfreeze < Test::Unit::TestCase
   def setup
     @out = StringIO.new
-    @interpreter = Brainfuck.new(input: $stdin, output: @out)
+    @interpreter = Brainfreeze.new(input: $stdin, output: @out)
   end
 
   def test_hello_world

@@ -3,11 +3,11 @@
 require 'securerandom'
 require_relative './environment'
 
-class Brainfuck
-  class BrainfuckError < StandardError; end
-  class SyntaxError < BrainfuckError; end
-  class OutOfRangeError < BrainfuckError; end
-  class InputError < BrainfuckError; end
+class Brainfreeze
+  class BrainfreezeError < StandardError; end
+  class SyntaxError < BrainfreezeError; end
+  class OutOfRangeError < BrainfreezeError; end
+  class InputError < BrainfreezeError; end
 
   DATA_LENGTH = 30_000
 
