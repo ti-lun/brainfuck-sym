@@ -12,6 +12,10 @@ The Interpreter has been supplied for you. We'll walk you through how to build t
 
 You do not need any background context on compilers or the BF language to complete this challenge. This is intentionally a very open-ended challenge; you will be evaluated both on your technical solutions, as well as your communication and presentation in delivering them.
 
+## Expectations
+
+The project has a 4 hour time limit; we've designed it to be completable in 2-3 hours. It might be helpful to start by getting _something_ working, and then cleaning it up. Done is better than perfect for a first pass!
+
 ## Background
 
 > [`Brainf***`](https://en.wikipedia.org/wiki/Brainfuck) is an esoteric programming language created in 1993 by Urban Müller, and notable for its extreme minimalism.
