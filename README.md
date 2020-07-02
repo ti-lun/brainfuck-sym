@@ -53,7 +53,7 @@ You will be using this code in the next step to implement an API.
 
 We want to wrap the supplied BF interpreter in an API that will provision an instance on-demand, execute a program one call at a time, and return after each call a dump of the current memory.
 
-Please implement this API as a modern, idiomatic Rails app. It should implement a sane schema, and allow the client to implement a full-functional BF virtual machine with nothing but the API. This means you will want to support the ability to:
+Please implement this API as a modern, idiomatic Rails app. It should implement a sane schema, and allow the client to implement a fully-functional BF virtual machine with nothing but the API. This means you will want to support the ability to:
 
 - Create a new, persistent BF interpreter instance
 - Provide the script to be interpreted
@@ -69,6 +69,8 @@ We strongly recommend you also test and document your API, using the tools of yo
 To help understand this assignment, we're providing a simple reference API which parses and executes a given script. You don't have to follow the same schema, but it might be a useful starting point.
 
 #### `POST https://bf-api.symops.io/api/v1/brainfuck`
+
+This endpoint provisions a BF interpreter and loads up a script (with input), but doesn't execute the script.
 
 This endpoint takes one mandatory parameter, `script`, which is a string containing the BF script to be executed. It also takes an optional `input` parameter, which is used to buffer some input characters before execution begins.
 
