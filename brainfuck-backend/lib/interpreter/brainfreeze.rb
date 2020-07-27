@@ -12,7 +12,6 @@ class Brainfreeze
   DATA_LENGTH = 30_000
 
   attr_reader :input, :output
-
   def initialize(
       uuid: SecureRandom.uuid,
       input: StringIO.new,

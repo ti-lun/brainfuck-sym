@@ -1,3 +1,8 @@
+// This app can take in a Brainfuck script and generate a step-by-step visualization
+// by feeding the inputted script to a Brainfuck server, and then retrieving all of the steps
+// of executing that script.  It can show a user-specified N number of cells.  The visualization
+// can go to the first step, the previous step, the next step, and the last step.
+
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -6,7 +11,7 @@ import Cells from './components/Cells';
 
 import './App.css';
 
-class Visualizer extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -109,7 +114,7 @@ class Visualizer extends Component {
   
 
   render() {
-    const { bfInputText, bfScript, bfStateArray, errorText, showNCells, step, currentBfUuid } = this.state;
+    const { bfStateArray, errorText, showNCells, step, currentBfUuid } = this.state;
     return (
       <div className="App">
           <div className="setup">
@@ -175,4 +180,4 @@ class Visualizer extends Component {
   }
 }
 
-export default Visualizer;
+export default App;

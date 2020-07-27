@@ -1,3 +1,7 @@
+// Cells shows the cells in memory when a Brainfuck script executes.
+// It also shows the script that is being executed as well.
+// Honestly, this probably didn't need to be a Component (it could be simpler).
+
 import React, { Component } from 'react';
 
 class Cells extends Component {

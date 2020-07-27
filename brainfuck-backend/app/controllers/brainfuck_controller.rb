@@ -2,6 +2,11 @@ require './lib/interpreter/brainfreeze'
 ## A Note on Brainfuck vs. Brainfreeze:
 ## Brainfreeze is the INTERPRETER
 ## Brainfuck is the endpoint of this Brainfuck API
+
+## Another note: for this assignment, I realize that purely, in terms of getting the functionality
+## to work, I could have just created an endpoint that instantiates a Brainfreeze interpreter, saves it
+## AND executes it all at the same time.
+## However, breaking it apart allows for greater versatility.
 class BrainfuckController < ApplicationController
     skip_before_action :verify_authenticity_token
 
@@ -39,8 +44,6 @@ class BrainfuckController < ApplicationController
         data: brainfuckInstanceJson["data"],
         script: brainfuckInstanceJson["script"]
       )
-      
-      binding.pry
 
       ### count is 1 by default if not found in params
       count = ((params[:count] || 1).to_i) - 1  
@@ -77,8 +80,7 @@ class BrainfuckController < ApplicationController
         script: brainfuckInstanceJson["script"]
       )
 
-      ## have to redo this because we need loops to be preprocessed...
-
+      ## have to parse again this because we need loops to be preprocessed...
       brainfreeze.parse!(brainfuckInstanceJson["script"].join())
       while !brainfreeze.done?
         brainfreeze.step!
