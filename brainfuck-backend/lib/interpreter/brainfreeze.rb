@@ -13,17 +13,25 @@ class Brainfreeze
 
   attr_reader :input, :output
 
-  def initialize(id: SecureRandom.uuid, input: StringIO.new, output: StringIO.new)
-    @id = id
+  def initialize(
+      uuid: SecureRandom.uuid,
+      input: StringIO.new,
+      output: StringIO.new,
+      ip: 0,
+      dp: 0,
+      data: Array.new(DATA_LENGTH, 0),
+      script: nil
+    )
+    @uuid = uuid
 
-    @ip = 0
-    @dp = 0
-    @data = Array.new(DATA_LENGTH, 0)
+    @ip = ip
+    @dp = dp
+    @data = data
 
     @input = input
     @output = output
 
-    @script = nil
+    @script = script
   end
 
   def parse!(script)
@@ -42,7 +50,7 @@ class Brainfreeze
 
   def as_json(_opts = {})
     {
-      id: @id,
+      uuid: @uuid,
       done: done?,
       instruction_pointer: @ip,
       data_pointer: @dp,
