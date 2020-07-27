@@ -112,23 +112,45 @@ class Visualizer extends Component {
     const { bfInputText, bfScript, bfStateArray, errorText, showNCells, step, currentBfUuid } = this.state;
     return (
       <div className="App">
-        <div>
-          <h1>Brain%@!# Interpreter</h1>
-          <p>Hello this is a BRAIN FUZZLES interpreter.  YEET</p>
-        </div>
-        <div>
-          Enter your brainfuck script here:<br />
-          <textarea onChange={this.updateBfScript} />
-        </div>
-        <div>
-          <Button onClick={this.initializeBfState}>Enter Brainfuck script</Button>
+          <div className="setup">
+            <div>
+              <h1>Brain%@!# Interpreter</h1>
+              <div>
+              Enter your brainfuck script here:<br />
+              <textarea onChange={this.updateBfScript} /><br/>
+              <Button onClick={this.initializeBfState}>Enter Brainfuck script</Button>
+            </div>
+              <h3>What is Brain%@!#?</h3>
+              <p>Brainfuck is the ungodly creation of Urban Müller, whose goal was apparently to create a Turing-complete language for which he could write the smallest compiler ever, for the Amiga OS 2.0. His compiler was 240 bytes in size. (Though he improved upon this later -- he informed me at one point that he had managed to bring it under 200 bytes.)</p>
+              <table>
+                <tr><td><tt>&gt;&nbsp;</tt></td><td>Increment the pointer.</td></tr>
+                <tr><td><tt>&lt;&nbsp;</tt></td><td>Decrement the pointer.</td></tr>
+                <tr><td><tt>+&nbsp;</tt></td><td>Increment the byte at the pointer.</td></tr>
+                <tr><td><tt>-&nbsp;</tt></td><td>Decrement the byte at the pointer.</td></tr>
+                <tr><td><tt>.&nbsp;</tt></td><td>Output the byte at the pointer.</td></tr>
+                <tr><td><tt>,&nbsp;</tt></td><td>Input a byte and store it in the byte
+                                                at the pointer.</td></tr>
+                <tr><td><tt>[&nbsp;</tt></td><td>Jump forward past the matching <tt>]</tt>
+                                                if the byte at the pointer is zero.</td></tr>
+                <tr><td><tt>]&nbsp;</tt></td><td>Jump backward to the matching <tt>[</tt>
+                                                unless the byte at the pointer is zero.</td></tr>
+                </table>
+              
+              <p>From https://www.muppetlabs.com/~breadbox/bf/</p>
+            </div>
+          </div>
+        <div className="visual">
           {
             currentBfUuid &&
               <Button onClick={this.getAllSteps}>Begin visualization</Button>
           }
+
           {
             bfStateArray.length > 1 &&
             <div>
+              <p>
+                <span style={{color: "red"}}>Red</span> is the pointer at the instruction; <u>underline</u> is the pointer at the cell.
+              </p>
               <Cells
                 bfState={bfStateArray[step]}
                 N={showNCells}
